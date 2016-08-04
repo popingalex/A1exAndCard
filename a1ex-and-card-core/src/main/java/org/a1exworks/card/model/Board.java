@@ -5,14 +5,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Board<C extends Card> {
+public class Board<C extends Card, P extends Player> {
     public final int                  id;
-    public final List<Player>         party;
+    public final String               name;
+    public final List<P>              party;
     public final Map<Object, Area<C>> table;
 
-    public Board(int id) {
+    public Board(int id, String name) {
         this.id = id;
-        this.party = new ArrayList<Player>();
+        this.name = name;
+        this.party = new ArrayList<P>();
         this.table = new HashMap<Object, Area<C>>();
+    }
+
+    private static String LF = System.getProperty("line.separator");
+
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("B[");
+        if (null != name) {
+            int length = (10 - (name.getBytes().length - name.length()) / 2);
+            String.format("Name:%-" + length + "s, ", name);
+        }
+        buffer.append(String.format("ID:%3d", id));
+        buffer.append("]").append(LF);
+        for (Object key : table.keySet()) {
+            buffer.append(key + ":" + table.get(key)).append(LF);
+        }
+        buffer.append(party.toString());
+        return buffer.toString();
     }
 }
