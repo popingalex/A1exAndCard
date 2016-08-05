@@ -7,30 +7,30 @@ import org.a1exworks.card.model.Card;
 import org.a1exworks.card.model.Player;
 import org.a1exworks.card.play.Action;
 import org.a1exworks.card.round.Phase;
-import org.a1exworks.card.round.Round;
+import org.a1exworks.card.round.Turn;
 
 public class Rule<C extends Card, P extends Player> implements Action<C, P> {
-    public void play(Board<C, P> board) {
+    public final void play(Board<C, P> board) {
         P player = nextPlayer(board, null);
-        Round<C> round = nextRound(board, null);
-        for (; null != round; round = nextRound(board, round), player = nextPlayer(board, player)) {
-            for (Phase<C> phase : round.process) {
-                perform(board, player, round, phase);
+        Turn<C> turn = nextRound(board, null);
+        for (; null != turn; turn = nextRound(board, turn), player = nextPlayer(board, player)) {
+            for (Phase<C> phase : turn.phases) {
+                perform(board, player, turn, phase);
             }
         }
     }
 
-    @Override
-    public void perform(Board<C, P> board, P player, Round<C> round, Phase<C> phase) {}
-
-    protected Round<C> nextRound(Board<C, P> board, Round<C> round) {
-        int count = (null == round) ? 0 : (round.count + 1);
-        return new Round<C>(count);
+    protected Turn<C> nextRound(Board<C, P> board, Turn<C> turn) {
+        int count = (null == turn) ? 0 : (turn.count + 1);
+        return new Turn<C>(count);
     }
 
     protected P nextPlayer(Board<C, P> board, P current) {
-        List<P> party = board.party;
-        int index = (null == current) ? -1 : party.indexOf(current);
-        return party.get(index % party.size());
+        List<P> players = board.players;
+        int index = (null == current) ? -1 : players.indexOf(current);
+        return players.get((index + players.size() + 1) % players.size());
     }
+
+    @Override
+    public void perform(Board<C, P> board, P player, Turn<C> turn, Phase<C> phase) {}
 }

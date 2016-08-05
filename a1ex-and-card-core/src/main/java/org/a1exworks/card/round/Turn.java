@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.a1exworks.card.model.Card;
 
-public class Round<C extends Card> {
+public class Turn<C extends Card> {
     public final int            count;
-    public final List<Phase<C>> process;
+    public final List<Phase<C>> phases;
 
-    public Round(int count) {
+    public Turn(int count) {
         this.count = count;
-        this.process = new ArrayList<Phase<C>>();
+        this.phases = new ArrayList<Phase<C>>();
     }
 }

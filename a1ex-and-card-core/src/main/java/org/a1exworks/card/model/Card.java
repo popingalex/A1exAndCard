@@ -15,13 +15,13 @@ public class Card {
     @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
-        buffer.append("C[");
+        buffer.append("C(");
         if (null != name) {
             int length = (10 - (name.getBytes().length - name.length()) / 2);
-            String.format("Name:%-" + length + "s, ", name);
+            buffer.append(String.format("Name:%-" + length + "s, ", name));
         }
         buffer.append(String.format("ID:%3d", id));
-        buffer.append("]");
+        buffer.append(")");
         return buffer.toString();
     }
 }
