@@ -35,5 +35,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>a1ex-and-card-core</module>
+		<module>a1ex-and-card-cui</module>
 	</modules>
 </project>
