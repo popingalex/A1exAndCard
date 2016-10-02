@@ -34,7 +34,7 @@
 	</dependencies>
 	<packaging>pom</packaging>
 	<modules>
-		<module>a1ex-and-card-core</module>
-		<module>a1ex-and-card-cui</module>
+		<module>core</module>
+		<module>cui</module>
 	</modules>
 </project>
