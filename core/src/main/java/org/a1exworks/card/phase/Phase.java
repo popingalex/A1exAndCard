@@ -1,6 +1,6 @@
-package org.a1exworks.card.round;
+package org.a1exworks.card.phase;
 
-import org.a1exworks.card.model.Card;
+import org.a1exworks.card.entity.Card;
 
 public class Phase<C extends Card> {
     public final int    id;

@@ -5,13 +5,13 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.a1exworks.card.model.Pile;
-import org.a1exworks.card.model.Board;
-import org.a1exworks.card.model.Card;
-import org.a1exworks.card.model.Player;
-import org.a1exworks.card.round.Phase;
-import org.a1exworks.card.round.Turn;
-import org.a1exworks.card.rule.Rule;
+import org.a1exworks.card.action.Rule;
+import org.a1exworks.card.entity.Board;
+import org.a1exworks.card.entity.Card;
+import org.a1exworks.card.entity.Pile;
+import org.a1exworks.card.entity.Player;
+import org.a1exworks.card.phase.Phase;
+import org.a1exworks.card.phase.Turn;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -60,8 +60,8 @@ public class ClassicDemo {
             final Random RANDOM     = new Random();
 
             @Override
-            protected Turn<Card> nextRound(Board<Card, Player> board, Turn<Card> turn) {
-                turn = super.nextRound(board, turn);
+            protected Turn<Card, Player> nextTurn(Board<Card, Player> board, Turn<Card, Player> turn) {
+                turn = super.nextTurn(board, turn);
                 int countPlayer = 0;
                 for (Player player : board.players) {
                     if (!board.piles.get("private_hand_" + player.name).cards.isEmpty()) {
@@ -79,10 +79,10 @@ public class ClassicDemo {
             }
 
             @Override
-            public void perform(Board<Card, Player> board, Player player, Turn<Card> turn, Phase<Card> phase) {
+            public void perform(Board<Card, Player> board, Turn<Card, Player> turn, Player player, Phase<Card> phase) {
                 System.out.println("========================================");
                 System.out.println(board);
-                System.out.println(player+"/"+turn.count+"/"+phase.name);
+                System.out.println(player + "/" + turn.count + "/" + phase.name);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
