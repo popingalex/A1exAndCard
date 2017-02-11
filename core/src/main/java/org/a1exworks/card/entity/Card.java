@@ -5,6 +5,7 @@ public class Card {
     public final int    id;
     public final int    uid;
     public final String name;
+    public int          mark;
 
     public Card(int id, String name) {
         this.id = id;

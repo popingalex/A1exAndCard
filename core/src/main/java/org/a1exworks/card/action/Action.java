@@ -7,5 +7,17 @@ import org.a1exworks.card.phase.Phase;
 import org.a1exworks.card.phase.Turn;
 
 public interface Action<C extends Card, P extends Player> {
-    void perform(Board<C, P> board, P player, Turn<C> round, Phase<C> phase);
+    /**
+     * to perform
+     * 
+     * @param board
+     *            with current board
+     * @param turn
+     *            with current turn
+     * @param player
+     *            with current player
+     * @param phase
+     *            with current phase
+     */
+    void perform(Board<C, P> board, Turn<C, P> turn, Player player, Phase<C, P> phase);
 }

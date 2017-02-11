@@ -3,6 +3,7 @@ package org.a1exworks.card.entity;
 public class Player {
     public final int    id;
     public final String name;
+    public int          mark;
 
     public Player(int id, String name) {
         this.id = id;

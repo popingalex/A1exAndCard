@@ -7,6 +7,7 @@ public class Pile<C extends Card> {
     public final int           id;
     public final String        name;
     public final LinkedList<C> cards;
+    public int                 mark;
 
     public Pile(int id, String name) {
         this.id = id;

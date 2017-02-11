@@ -8,4 +8,16 @@
 	</parent>
 	<artifactId>a1ex-and-card-demo</artifactId>
 	<name>Alex &amp; Card demo</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.a1exworks</groupId>
+			<artifactId>a1ex-and-card-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.a1exworks</groupId>
+			<artifactId>a1ex-and-card-cui</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

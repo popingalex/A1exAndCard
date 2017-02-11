@@ -8,4 +8,11 @@
 	</parent>
 	<artifactId>a1ex-and-card-core</artifactId>
 	<name>Alex &amp; Card core</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.aquacraft</groupId>
+			<artifactId>testpom</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
